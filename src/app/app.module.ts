@@ -9,6 +9,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { NewComponent } from './pages/new/new.component';
 import { AnimalsComponent } from './pages/animals/animals.component';
 import { LoginComponent } from './pages/login/login.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AnimalsService } from './services/animals-service.service';
 
 @NgModule({
   declarations: [
@@ -22,9 +24,10 @@ import { LoginComponent } from './pages/login/login.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [AnimalsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

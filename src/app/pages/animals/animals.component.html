@@ -1,1 +1,48 @@
-<p>animals works!</p>
+<div class ="card mb-3">
+  <div class="card-body text-primary">
+    <h5>Descubre todos los animales que buscan un hogar</h5>
+    <div class="my-2 text-left">
+      <button
+        class="btn btn-rounded btn-primary"
+        *ngIf="authService.token"
+        type="button"
+        routerLink="['/animals/new']"
+        >
+          Añadir animal
+      </button>
+    </div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Especie</th>
+          <th scope="col">Sexo</th>
+          <th scope="col">Nacimiento</th>
+          <th scope="col">Peso</th>
+          <th scope="col">Localización</th>
+          <!-- <th scope="col">Descripción</th> -->
+          <th *ngIf="authService.token" scope="col">Accion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of animals" class="list-group-item-action">
+          <th scope="row">{{item.id}}</th>
+          <td>{{item.name}}</td>
+          <td>{{item.specie.name}}</td>
+          <td>{{item.sex}}</td>
+          <td>{{item.birthDate}}</td>
+          <td>{{item.weight}}</td>
+          <td>{{item.region.name}}</td>
+          <!-- <td>{{item.description}}</td> -->
+          <td *ngIf="authService.token">
+            <button  class="btn btn-primary m-md-4"  [routerLink]="['/animals/new',item.id]">Editar</button>
+            <button  class="btn btn-danger" (click)="delete(item)" >Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
