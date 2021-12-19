@@ -1,0 +1,13 @@
+.navbar {
+  background-color: #f44336;
+}
+
+.logo {
+  width: 50px;
+}
+
+
+.flex {
+  display: flex;
+  align-items: center;
+}
