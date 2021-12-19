@@ -1,13 +1,25 @@
+.header {
+  width: 100vw;
+}
+
 .navbar {
   background-color: #f44336;
 }
 
 .logo {
+
   width: 50px;
 }
 
+.title {
+  font-size: 30px;
+}
 
-.flex {
+.title-container {
+  padding:15px 25px;
+  width: 100%;
   display: flex;
   align-items: center;
+  background-color: #f1c232;
+
 }
