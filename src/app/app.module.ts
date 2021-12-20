@@ -11,6 +11,7 @@ import { AnimalsComponent } from './pages/animals/animals.component';
 import { LoginComponent } from './pages/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AnimalsService } from './services/animals-service.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,9 @@ import { AnimalsService } from './services/animals-service.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
+
   ],
   providers: [AnimalsService],
   bootstrap: [AppComponent]

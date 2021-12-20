@@ -1,19 +1,19 @@
 <div class ="card mb-3">
-  <div class="card-body text-primary">
-    <h5>Descubre todos los animales que buscan un hogar</h5>
+  <div class="card-body">
+    <h5 class="title">Descubre todos los animales que buscan un hogar</h5>
     <div class="my-2 text-left">
       <button
-        class="btn btn-rounded btn-primary"
+        class="add-btn border-0 btn btn-rounded btn-primary"
         *ngIf="authService.token"
         type="button"
-        routerLink="['/animals/new']"
+        routerLink="/animals/new"
         >
           Añadir animal
       </button>
     </div>
 
-    <table class="table">
-      <thead>
+    <table class="table table-striped">
+      <thead class="thead-dark">
         <tr>
           <th scope="col">#</th>
           <th scope="col">Nombre</th>
@@ -23,7 +23,7 @@
           <th scope="col">Peso</th>
           <th scope="col">Localización</th>
           <!-- <th scope="col">Descripción</th> -->
-          <th *ngIf="authService.token" scope="col">Accion</th>
+          <th *ngIf="authService.token" scope="col">Acción</th>
         </tr>
       </thead>
       <tbody>
@@ -31,14 +31,14 @@
           <th scope="row">{{item.id}}</th>
           <td>{{item.name}}</td>
           <td>{{item.specie.name}}</td>
-          <td>{{item.sex}}</td>
+          <td>{{item.sex.name}}</td>
           <td>{{item.birthDate}}</td>
-          <td>{{item.weight}}</td>
+          <td>{{item.weight}} kg</td>
           <td>{{item.region.name}}</td>
           <!-- <td>{{item.description}}</td> -->
           <td *ngIf="authService.token">
-            <button  class="btn btn-primary m-md-4"  [routerLink]="['/animals/new',item.id]">Editar</button>
-            <button  class="btn btn-danger" (click)="delete(item)" >Eliminar</button>
+            <button  class="btn btn-warning m-md-4"  [routerLink]="['/animals/edit',item.id]">Editar</button>
+            <button  class="btn btn-danger" (click)="delete(item)">Eliminar</button>
           </td>
         </tr>
       </tbody>

@@ -6,6 +6,7 @@ import {map} from 'rxjs/operators';
 import { AuthService } from '../services/auth-service.service'
 import { Region } from './../entities/region';
 import { Specie } from './../entities/specie';
+import { Sex } from '../entities/sex';
 
 
 @Injectable({
@@ -63,5 +64,13 @@ export class AnimalsService {
       map( (response) => response as Specie[] )
     );
   }
+
+  getSexs(): Observable<Sex[]> {
+    return this.http.get<Sex[]>(this.urlEndPoint + '/sexs', { headers: this.agregarAuthorizationHeader() }).pipe(
+      map( (response) => response as Sex[] )
+    );
+  }
+
+
 
 }

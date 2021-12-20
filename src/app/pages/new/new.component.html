@@ -1,1 +1,85 @@
-<p>new works!</p>
+<div class="new-section bg-dark text-white">
+
+
+  <div card-body>
+    <h4 class="title">Registrar nuevo animal</h4>
+    <form #clienteForm="ngForm">
+
+      <div class="form-group row">
+        <label for="name" class="col-form-label col-sm-2">Nombre</label>
+        <div class="col-sm-6">
+          <input type="text" name="name" [(ngModel)]="animal.name" class="form-control">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="specie" class="col-form-label col-sm-2">Especie</label>
+        <div class="col-sm-6">
+
+          <select [compareWith]="compareSpecie" class="form-control" [(ngModel)]="animal.specie" name="specie" style="width:200px;">
+            <option [ngValue]="undefined">seleccionar especie</option>
+            <option *ngFor="let specie of species" [ngValue]="specie">{{specie.name}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="sex" class="col-form-label col-sm-2">Sexo</label>
+        <div class="col-sm-6">
+
+          <select [compareWith]="compareSex" class="form-control" [(ngModel)]="animal.sex" name="sex" style="width:200px;">
+            <option [ngValue]="undefined">seleccionar sexo</option>
+            <option *ngFor="let sex of sexs" [ngValue]="sex">{{sex.name}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="birthDate" class="col-form-label col-sm-2">Nacimiento</label>
+        <div class="col-sm-6">
+          <input type="date"  class="form-control" [(ngModel)]="animal.birthDate" name="birthDate" >
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="weight" class="col-form-label col-sm-2">Peso en kg</label>
+        <div class="col-sm-6">
+          <input type="weight"  class="form-control" [(ngModel)]="animal.weight" name="weight" >
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="color" class="col-form-label col-sm-2">Color</label>
+        <div class="col-sm-6">
+          <input type="text"  class="form-control" [(ngModel)]="animal.color" name="color" >
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="region" class="col-form-label col-sm-2">Región</label>
+        <div class="col-sm-6">
+
+          <select [compareWith]="compararRegion" class="form-control" [(ngModel)]="animal.region" name="region" style="width:200px;">
+            <option [ngValue]="undefined">seleccionar región</option>
+            <option *ngFor="let region of regions" [ngValue]="region">{{region.name}}</option>
+          </select>
+        </div>
+        </div>
+
+   <div class="form-group row button-container">
+        <div class="col-sm-6">
+          <button class="btn btn-primary" role="botton" (click)="create()" *ngIf="!animal.id else elseBlock">Crear</button>
+
+          <ng-template #elseBlock>
+            <button class="btn btn-primary" role="button" (click)='update()'>Editar</button>
+          </ng-template>
+
+        </div>
+    </div>
+  </form>
+
+
+
+  </div>
+</div>
+

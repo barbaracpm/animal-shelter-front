@@ -1,0 +1,28 @@
+.title{
+  margin-bottom: 30px;
+  padding-top: 30px;
+  font-size: 20px;
+  margin-left: 40px;
+  color: #f1c232;
+}
+
+.button-container {
+  margin-top: 40px;
+  padding-bottom: 120px;
+  margin-left: 40px;
+}
+
+.col-form-label {
+  margin-left: 40px;
+}
+
+.form-control {
+  width: 200px;
+  margin-left: 40px;
+}
+
+.btn {
+width: 100px;
+background-color: #f44336;
+border: solid #f44336;
+}

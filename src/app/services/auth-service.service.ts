@@ -8,17 +8,17 @@ import { UserEnt } from './../entities/userEnt';
 })
 export class AuthService {
 
-  private _user!: UserEnt;
+  private _userEnt!: UserEnt;
   private _token!: string;
 
   constructor(private http: HttpClient) { }
 
-  public get user(): UserEnt{
-    if (this._user != null) {
-      return this._user;
-    } else if (this._user == null && sessionStorage.getItem('user') != null) {
-      this._user = JSON.parse(sessionStorage.getItem('user') || '{}') as UserEnt;
-      return this._user;
+  public get userEnt(): UserEnt{
+    if (this._userEnt != null) {
+      return this._userEnt;
+    } else if (this._userEnt == null && sessionStorage.getItem('userEnt') != null) {
+      this._userEnt = JSON.parse(sessionStorage.getItem('userEnt') || '{}') as UserEnt;
+      return this._userEnt;
     }
     return new UserEnt();
   }
@@ -33,7 +33,7 @@ export class AuthService {
     return "";
   }
 
-  login(user: UserEnt): Observable<any> {
+  login(userEnt: UserEnt): Observable<any> {
     const urlEndpoint = 'http://localhost:8080/oauth/token';
 
     const credentials = btoa('animalsApp' + ':' + '54321');
@@ -45,26 +45,26 @@ export class AuthService {
 
     let params = new URLSearchParams();
     params.set('grant_type', 'password');
-    params.set('username', user.username);
-    params.set('password', user.password);
+    params.set('username', userEnt.username);
+    params.set('password', userEnt.password);
     console.log(params.toString());
     return this.http.post<any>(urlEndpoint, params.toString(), { headers: httpHeaders });
   }
 
   keepUser(accessToken: string): void {
-    let payload = this.obtenerDatosToken(accessToken);
-    this._user = new UserEnt();
-    this._user.username = payload.user_name;
-    this._user.roles = payload.authorities;
-    sessionStorage.setItem('usuario', JSON.stringify(this._user));
+    let payload = this.obtainTokenData(accessToken);
+    this._userEnt = new UserEnt();
+    this._userEnt.username = payload.user_name;
+    this._userEnt.roles = payload.authorities;
+    sessionStorage.setItem('userEnt', JSON.stringify(this._userEnt));
   }
 
-  guardarToken(accessToken: string): void {
+  keepToken(accessToken: string): void {
     this._token = accessToken;
     sessionStorage.setItem('token', accessToken);
   }
 
-  obtenerDatosToken(accessToken: string): any {
+  obtainTokenData(accessToken: string): any {
     if (accessToken != null) {
       return JSON.parse(atob(accessToken.split(".")[1]));
     }
@@ -72,7 +72,7 @@ export class AuthService {
   }
 
   isAuthenticated(): boolean {
-    let payload = this.obtenerDatosToken(this.token);
+    let payload = this.obtainTokenData(this.token);
     if (payload != null && payload.user_name && payload.user_name.length > 0) {
       return true;
     }
@@ -82,9 +82,9 @@ export class AuthService {
 
   logout(): void {
     this._token = '';
-    this._user = new UserEnt;
+    this._userEnt = new UserEnt;
     sessionStorage.clear();
     sessionStorage.removeItem('token');
-    sessionStorage.removeItem('usuario');
+    sessionStorage.removeItem('userEnt');
   }
 }

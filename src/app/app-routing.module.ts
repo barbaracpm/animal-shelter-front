@@ -29,7 +29,7 @@ const routes: Routes = [
     component: NewComponent
   },
   {
-    path:'animals/new/:id',
+    path:'animals/edit/:id',
     component: NewComponent
   },
 
