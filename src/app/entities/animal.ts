@@ -13,5 +13,6 @@ export class Animal {
     weight!: number;
     description!: string;
     region!: Region;
+    picture!: string;
 
 }

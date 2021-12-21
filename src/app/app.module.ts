@@ -17,6 +17,7 @@ import { VolunteersService } from './services/volunteers-service.service';
 import { AuthService } from './services/auth-service.service';
 import { NewVolunteerComponent } from './pages/new-volunteer/new-volunteer.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { AnimalDetailComponent } from './pages/animal-detail/animal-detail.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ContactComponent } from './pages/contact/contact.component';
     LoginComponent,
     VolunteersComponent,
     NewVolunteerComponent,
-    ContactComponent
+    ContactComponent,
+    AnimalDetailComponent
   ],
   imports: [
     BrowserModule,

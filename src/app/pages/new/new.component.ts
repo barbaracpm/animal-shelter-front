@@ -7,6 +7,7 @@ import { Specie } from '../../entities/specie';
 import { Animal } from '../../entities/animal';
 import { Sex } from '../../entities/sex';
 
+
 @Component({
   selector: 'app-new',
   templateUrl: './new.component.html',
@@ -18,6 +19,7 @@ export class NewComponent implements OnInit {
   species!: Specie[];
   sexs!: Sex[];
   animal: Animal = new Animal();
+
 
   constructor(private animalsService: AnimalsService,
      private router: Router,

@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable} from 'rxjs';
 import { Animal } from '../entities/animal'
@@ -70,6 +70,43 @@ export class AnimalsService {
       map( (response) => response as Sex[] )
     );
   }
+
+  subirFoto(file: File, id:any): Observable<HttpEvent<any>>{
+
+    let formData= new FormData();
+
+    formData.append('file', file);
+
+    formData.append('id', id);
+
+
+
+    let httpHeaders= new HttpHeaders();
+
+    let token= this.authService.token;
+
+    if(token != null){
+
+      httpHeaders= httpHeaders.append('Authorization', 'Bearer' + token);
+
+    }
+
+
+
+    const req= new HttpRequest('POST', `${this.urlEndPoint}/uploads`, formData, {
+
+      reportProgress:true,
+
+      headers:httpHeaders
+
+    });
+
+
+
+    return this.http.request(req).pipe(resp=> resp);
+
+  }
+
 
 
 
