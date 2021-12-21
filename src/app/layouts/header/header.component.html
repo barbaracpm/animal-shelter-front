@@ -18,8 +18,11 @@
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link active" routerLink="/animals" tabindex="-1" aria-disabled="false">Adopta</a>
       </li>
+      <li class="nav-item" routerLinkActive="active" *ngIf="authService.token"> <a class="nav-link active"routerLink="/volunteers" tabindex="-1" aria-disabled="false">Ver voluntarios</a>
+      </li>
 
       <li *ngIf="!authService.token" class="nav-item" ><a [routerLink]="['/login']" class="nav-link active">Sign In</a></li>
+
       <li *ngIf="authService.token" class="dropright">
         <a class="btn btn-secondary dropdown-toggle border-0" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           {{authService.userEnt.username}}

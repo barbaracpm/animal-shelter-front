@@ -26,7 +26,7 @@ export class AnimalsComponent implements OnInit {
   delete(animal: Animal): void {
     swal({
       title: 'Está seguro?',
-      text: `¿Seguro que desea eliminar al  ${animal.specie.n} ${animal.name}?`,
+      text: `¿Seguro que desea eliminar al  ${animal.specie.name} ${animal.name}?`,
       type: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',

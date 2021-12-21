@@ -45,7 +45,7 @@ export class NewComponent implements OnInit {
       //ver si está ok
       animal=> {
         this.router.navigate(['/animals']);
-        swal('Nuevo cliente', `El registro del animal ${this.animal.name} ha sido creado con éxito`, 'success');
+        swal('Nuevo registro', `El registro del animal ${this.animal.name} ha sido creado con éxito`, 'success');
       },
       err => {
 

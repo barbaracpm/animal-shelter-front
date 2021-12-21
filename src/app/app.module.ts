@@ -12,6 +12,10 @@ import { LoginComponent } from './pages/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AnimalsService } from './services/animals-service.service';
 import { FormsModule } from '@angular/forms';
+import { VolunteersComponent } from './pages/volunteers/volunteers.component';
+import { VolunteersService } from './services/volunteers-service.service';
+import { AuthService } from './services/auth-service.service';
+import { NewVolunteerComponent } from './pages/new-volunteer/new-volunteer.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,9 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     NewComponent,
     AnimalsComponent,
-    LoginComponent
+    LoginComponent,
+    VolunteersComponent,
+    NewVolunteerComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +36,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule
 
   ],
-  providers: [AnimalsService],
+  providers: [AnimalsService, VolunteersService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
