@@ -15,9 +15,15 @@
       <li class="nav-item active"  routerLinkActive="/">
         <a class="nav-link" routerLink='/'>Home <span class="sr-only">(current)</span></a>
       </li>
+
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link active" routerLink="/animals" tabindex="-1" aria-disabled="false">Adopta</a>
+        <a class="nav-link active" routerLink="/animals" tabindex="-1" aria-disabled="false">Animales</a>
       </li>
+
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link active" routerLink="/contact" tabindex="-1" aria-disabled="false">Contacto</a>
+      </li>
+
       <li class="nav-item" routerLinkActive="active" *ngIf="authService.token"> <a class="nav-link active"routerLink="/volunteers" tabindex="-1" aria-disabled="false">Ver voluntarios</a>
       </li>
 

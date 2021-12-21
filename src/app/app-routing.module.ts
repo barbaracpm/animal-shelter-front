@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { AnimalsComponent } from "./pages/animals/animals.component";
+import { ContactComponent } from "./pages/contact/contact.component";
 import { HomeComponent } from "./pages/home/home.component";
 import { LoginComponent } from "./pages/login/login.component";
 import { NewVolunteerComponent } from "./pages/new-volunteer/new-volunteer.component";
@@ -52,6 +53,11 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+
+  {
+    path: 'contact',
+    component: ContactComponent
   },
 
 //VERIFICA SI EXISTE LA RUTA. SI NO EXISTE TE REDIRIGE AL PPAL
