@@ -1,12 +1,11 @@
-<div class="bg-dark text-white">
-  <div class="card-header">Detalle Animal</div>
+<div class="bg-dark text-white detail-card">
+  <div class="card-header title">Detalles de  {{animal.name}}</div>
     <div class="card-body">
 
       <div class="container">
         <div class="row">
           <div class="col-sm">
             <ul *ngIf="animal" class="list-group text-dark mb-3">
-              <li class="list-group-item active">Nombre: {{animal.name}}</li>
               <li class="list-group-item">Sexo: {{animal.sex.name}}</li>
               <li class="list-group-item">Especie: {{animal.specie.name}}</li>
               <li class="list-group-item">Fecha de nacimiento: {{animal.birthDate}}</li>

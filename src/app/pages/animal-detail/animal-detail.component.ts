@@ -16,15 +16,15 @@ export class AnimalDetailComponent implements OnInit {
   fotoSeleccionada!: File;
   progreso: number =0;
 
-  constructor(private animalsService: AnimalsService, private ActivatedRoute: ActivatedRoute) { }
+  constructor(private animalService: AnimalsService, private ActivatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.ActivatedRoute.paramMap.subscribe(params => {
       let id:number = +params.get('id')!;
 
       if(id){
-        this.animalsService.getAnimal(id).subscribe(animal => {
-          this.animal =animal;
+        this.animalService.getAnimal(id).subscribe(animal => {
+          this.animal = animal;
         })
       }
     })
@@ -40,7 +40,7 @@ export class AnimalDetailComponent implements OnInit {
     if(!this.fotoSeleccionada){
       swal('Error Upload', 'Debe seleccionar una foto', 'error');
     } else {
-      this.animalsService.subirFoto(this.fotoSeleccionada, this.animal.id)
+      this.animalService.subirFoto(this.fotoSeleccionada, this.animal.id)
       .subscribe(event => {
         if(event.type === HttpEventType.UploadProgress) {
           this.progreso = Math.round((event.loaded / event.total!) * 100);
@@ -52,4 +52,7 @@ export class AnimalDetailComponent implements OnInit {
       });
     }
   }
+
+
+
 }

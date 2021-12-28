@@ -71,11 +71,11 @@ export class AnimalsService {
     );
   }
 
-  subirFoto(file: File, id:any): Observable<HttpEvent<any>>{
+  subirFoto(archivo: File, id:any): Observable<HttpEvent<any>>{
 
     let formData= new FormData();
 
-    formData.append('file', file);
+    formData.append('archivo', archivo);
 
     formData.append('id', id);
 
@@ -106,6 +106,7 @@ export class AnimalsService {
     return this.http.request(req).pipe(resp=> resp);
 
   }
+
 
 
 

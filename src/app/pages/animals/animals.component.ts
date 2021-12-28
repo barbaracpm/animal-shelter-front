@@ -12,10 +12,13 @@ import swal from 'sweetalert2';
 export class AnimalsComponent implements OnInit {
 
   animals!: Animal[];
+  imgSrc!:string;
 
   constructor(private animalsService:AnimalsService,public authService: AuthService) { }
 
   ngOnInit(): void {
+
+    this.imgSrc = 'assets/avatar.jpg';
 
    this.animalsService.getAnimals().subscribe(
      animals => this.animals = animals
